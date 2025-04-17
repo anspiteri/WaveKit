@@ -1,2 +1,2 @@
-# Wavekit
-Wavekit: A Tiny DAW Engine
+# WaveKit
+WaveKit: A Tiny DAW Engine
