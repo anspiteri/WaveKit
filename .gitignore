@@ -1,6 +1,14 @@
 # Special
 TODO.txt
 
+# Build Config
+*.vcxproj
+*.vcxproj.user
+*.vcxproj.filters
+*.sln
+*.log
+Makefile
+
 # Prerequisites
 *.d
 
@@ -33,3 +41,10 @@ TODO.txt
 *.exe
 *.out
 *.app
+
+# Directories
+.vs/
+Binaries/
+
+# Exclude
+!Vendor/Binaries
