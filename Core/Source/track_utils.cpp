@@ -11,7 +11,7 @@
 #define SAMPLE_RATE 8000
 #define N_CHANNELS 1
 
-// Initialize a new sound_seg object
+// Initialize a new track object
 struct track* tr_init() {
     struct track* t = (struct track*)malloc(sizeof(struct track));
 
