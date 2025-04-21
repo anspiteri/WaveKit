@@ -15,16 +15,14 @@ At present it features a simple, testable architecture with the hope to possibly
 (native apps, audio plugins, web tools, etc.) via a stable core. This is why I have setup the project
 architecture as it is.
 
----
+*Note: (🔧) indicates a todo section.*
 
 ## 🚀 Current Features
 
 - 🎛️ Modular engine design for basic audio track management, processing, and I/O
-- 🧩 Clean separation between **Core logic**, **App frontend**, and the **Test suite**
+- 🧩 Clean separation between **core library**, **generic frontend**, and the **test suite**
 - 🔧 Cross-platform build system using [Premake5](https://premake.github.io/)
 - 📦 File-level open-source licensing (MPL-2.0) — use freely, share improvements
-
----
 
 ## 🧱 Project Structure
 ```plaintext
@@ -54,11 +52,10 @@ WaveKit/
 ```
 
 - Only `Core/` is required when using WaveKit as a library for an external project
----
 
 ## 🛠️ Project Tracking
 ### Status 💾
-WaveKit is in early development/migration and currently includes:
+WaveKit is in early development and currently includes:
 
 ✅ Core track utilities and a heap buffer system
 
@@ -85,18 +82,14 @@ WaveKit is in early development/migration and currently includes:
 
 🧭 Possible Additional formats like .flac, .ogg, and .mp3
 
-### Future Plans (in progress) 🔭
+### (🔧) Future Plans 🔭
 **Project**
 **Core**
 **Test Suite**
 
----
+## (🔧) Getting Started
 
-## ⚙️ TODO: Getting Started
-
----
-
-## 🔌 TODO: Using WaveKit in a Project
+## (🔧) Using WaveKit in a Project 🔌
 
 ---
 
