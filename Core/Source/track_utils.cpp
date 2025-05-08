@@ -68,6 +68,7 @@ void tr_write(struct track* t, int16_t* src, size_t pos, size_t len) {
 	        n_size *= 2;
 	    } while (n_size < (pos + len));
 
+        errno = 0;
 	    int16_t* new_data = (int16_t*)realloc(t->data, n_size * sizeof(int16_t));
 	    if (new_data == NULL) {
 	        fprintf(stderr, "Write error, could not resize track: %s\n", strerror(errno));

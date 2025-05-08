@@ -16,6 +16,8 @@
 
 void w_load(const char* fname, int16_t* dest) {
     int32_t data_s = -1;
+    
+    errno = 0;
     FILE* fp = fopen(fname, "r");
 
     if (fp == NULL) {
@@ -23,12 +25,14 @@ void w_load(const char* fname, int16_t* dest) {
 	    return;
     }
 
+    errno = 0;
     if (fseek(fp, DATA_OFFSET, SEEK_SET) != 0) {
 	    fprintf(stderr, "Error traversing file: %s\n", strerror(errno));
 	    fclose(fp);
 	return; 
     }
     
+    errno = 0;
     if (fread(&data_s, sizeof(int32_t), 1, fp) != 1) {	
 	    fprintf(stderr, "Error reading file: error or EOF.\n"); 
 	    fclose(fp);
