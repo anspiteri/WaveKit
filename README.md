@@ -1,11 +1,11 @@
 # 🎧 WaveKit
 ## A Tiny DAW Engine
 
-The goal for **WaveKit** is to be a lightweight, modular digital audio workstation (DAW) backend library — 
-designed to be embedded, extended, and adapted for custom audio tools and creative applications.
+The goal for **WaveKit** is to be a lightweight, modular digital audio workstation (DAW) backend — 
+designed for applications that require a lightweight ecosystem, with some custom features.
 
 This project was originally created as a university assignment, however I loved the process so much that 
-I wanted to rebuild the project and extend it based on my own specification.
+I wanted to rebuild the project and extend it based on my own specification and for my own learning.
 
 The plan is to create a clean, minimal, and open starting point for DAW-like processing on the backend. I
 imagine that the scope of the project will become more focussed once I discover how best a library like this 
