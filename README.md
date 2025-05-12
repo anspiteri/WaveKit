@@ -1,15 +1,12 @@
 # 🎧 WaveKit
 ## A Tiny DAW Engine
 
-The goal for **WaveKit** is to be a lightweight, modular digital audio workstation (DAW) backend — 
-designed for applications that require a lightweight ecosystem, with some custom features.
+**WaveKit** is a personal learning project. It was originally for a university project in C, however I was 
+very interested in the ideas involved in low-level digital audio that I decided to rebuild it as WaveKit.
 
-This project was originally created as a university assignment, however I loved the process so much that 
-I wanted to rebuild the project and extend it based on my own specification and for my own learning.
-
-The plan is to create a clean, minimal, and open starting point for DAW-like processing on the backend. I
-imagine that the scope of the project will become more focussed once I discover how best a library like this 
-could be used.
+I'm still looking for a particular use-case, but for the moment the design is intended to be a lightweight, 
+modular digital audio workstation (DAW) backend — designed for applications that require a lightweight 
+ecosystem, with additional custom features.
 
 At present it features a simple, testable architecture with the hope to possibly support multiple frontends 
 (native apps, audio plugins, web tools, etc.) via a stable core. This is why I have setup the project
@@ -110,5 +107,4 @@ See [`LICENSE`](./LICENSE) for full terms.
 ---
 
 ### 🙌 Contributing
-
-If you're interested in helping extend WaveKit, add a frontend, or give feedback — feel free to fork and submit a PR, or open an issue for discussion. WaveKit is a learning-focused project and open to ideas.
+If you've happened upon this repository and see something you can fix, make better or have any general feedback — feel free to fork and submit a PR or open an issue for discussion. WaveKit is a learning-focused project and I want to learn!
