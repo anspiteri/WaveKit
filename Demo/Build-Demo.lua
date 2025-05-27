@@ -20,8 +20,8 @@ project "Demo"
       "Core"
    }
 
-   targetdir ("../Binaries/" .. OutputDir .. "/%{prj.name}")
-   objdir ("../Binaries/Intermediates/" .. OutputDir .. "/%{prj.name}")
+   targetdir ("../Binaries/" .. outputdir .. "/%{prj.name}")
+   objdir ("../Binaries/Intermediates/" .. outputdir .. "/%{prj.name}")
 
    filter "system:windows"
        systemversion "latest"
