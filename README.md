@@ -19,12 +19,16 @@ architecture as it is.
 
 *Note: (🔧) indicates a todo section.*
 
-## 🚀 Current Features
+---
+
+## 💡 Current Features
 
 - 🎛️ Modular engine design for basic audio track management, processing, and I/O
 - 🧩 Clean separation between **core library**, **generic frontend**, and the **test suite**
 - 🔧 Cross-platform build system using [Premake5](https://premake.github.io/)
 - 📦 File-level open-source licensing (MPL-2.0) — use freely, share improvements
+
+---
 
 ## 🧱 Project Structure
 ```plaintext
@@ -54,6 +58,8 @@ WaveKit/
 ```
 
 - Only `Core/` is required when using WaveKit as a library for an external project
+
+---
 
 ## 🛠️ Project Tracking
 ### Status 💾
@@ -89,9 +95,25 @@ WaveKit is in early development and currently includes:
 **Core**
 **Test Suite**
 
-## (🔧) Getting Started
+---
 
-## (🔧) Using WaveKit in a Project 🔌
+## 🚀 Getting Started with Premake 5
+Premake generates build scripts for different platforms. This allows the user to create platform specific build environments for WaveKit development. Future build systems will be considered as WaveKit grows.
+
+Currently we support Visual Studio on Windows and Make on Linux.
+
+### Windows
+1. Run the setup script in `WaveKit\Scripts\Setup-Windows.bat
+    - This will generate a Visual Studio `.sln` file
+    - By default the test suite and demo project are included, to exclude either of these use `--no-demo` or `--no-tests`
+2. Open `WaveKit.sln` in Visual Studio
+3. Build the solution using Visual Studio (see Visual Studio docs)
+4. Run the demo project or use WaveKit as a library for your own project ([explained here](#UsingWaveKit))
+
+---
+
+## (🔧) Using WaveKit in a Project 🔌 {#UsingWaveKit}
+
 
 ---
 
