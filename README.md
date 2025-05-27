@@ -103,16 +103,16 @@ Premake generates build scripts for different platforms. This allows the user to
 Currently we support Visual Studio on Windows and Make on Linux.
 
 ### Windows
-1. Run the setup script in `WaveKit\Scripts\Setup-Windows.bat
+1. Run the setup script in `WaveKit\Scripts\Setup-Windows.bat`
     - This will generate a Visual Studio `.sln` file
     - By default the test suite and demo project are included, to exclude either of these use `--no-demo` or `--no-tests`
 2. Open `WaveKit.sln` in Visual Studio
 3. Build the solution using Visual Studio (see Visual Studio docs)
-4. Run the demo project or use WaveKit as a library for your own project ([explained here](#UsingWaveKit))
+4. Run the demo project or use WaveKit as a library for your own project-- see next section.
 
 ---
 
-## (🔧) Using WaveKit in a Project 🔌 {#UsingWaveKit}
+## (🔧) Using WaveKit in a Project 🔌
 
 
 ---
