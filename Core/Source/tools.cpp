@@ -6,7 +6,6 @@
 
 #define STARTING_RESULT_S 128 
 
-// Returns a string containing <start>,<end> ad pairs in target
 char* tool_identify(struct track* target, struct track* ad) {
     char* result = (char*)malloc(STARTING_RESULT_S );
     size_t buffer_s = STARTING_RESULT_S;
