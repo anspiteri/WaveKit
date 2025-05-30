@@ -114,3 +114,52 @@ bool tr_delete_range(struct track* t, size_t pos, size_t len) {
     }
     return true;
 }
+
+// Insert a portion of src_track into dest_track at position destpos
+void tr_insert(struct track* src_track,
+            struct track* dest_track,
+            size_t destpos, size_t srcpos, size_t len) {
+    
+    // Dynamic resize if required: is position to write to outside of array 
+    // bounds OR is the length of the write larger than the memory available 
+    // at write position.
+    if (destpos >= dest_track->allocation_s || 
+            (dest_track->allocation_s - destpos) < len) {
+            
+        size_t n_size = dest_track->allocation_s;
+        
+        do {
+            n_size *= 2;
+        } while (n_size < (destpos + len));
+
+        int16_t* new_data 
+            = (int16_t*)realloc(dest_track->data, n_size * sizeof(int16_t));
+        
+        if (new_data == NULL) {
+            return;
+        } else {
+            size_t old_size = dest_track->allocation_s;
+            memset(
+                new_data + old_size, 
+                0, (n_size - old_size) * sizeof(int16_t)
+            );
+        }
+        dest_track->data = new_data;
+        dest_track->allocation_s = n_size;
+    }
+
+    // write to track data & recalculate n_samples
+    memcpy(
+        dest_track->data + destpos, 
+        src_track->data + srcpos, 
+        len * sizeof(int16_t)
+    );
+    size_t end_pos = destpos + len;
+    
+    // if we just inserted data past previous end position then update it
+    if (end_pos > dest_track->sample_n) {
+            dest_track->sample_n = end_pos;
+    }
+
+    return;
+}
