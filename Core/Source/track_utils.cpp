@@ -11,7 +11,6 @@
 #define SAMPLE_RATE 8000
 #define N_CHANNELS 1
 
-// Initialize a new track object
 struct track* tr_init() {
     struct track* t = (struct track*)malloc(sizeof(struct track));
 
@@ -32,7 +31,6 @@ struct track* tr_init() {
     return t;
 }    
 
-// Destroy a track object and free all allocated memory
 void tr_destroy(struct track* obj) {
     free((void*)obj->data);
     obj->data = NULL;
@@ -43,12 +41,10 @@ void tr_destroy(struct track* obj) {
     return;
 }
 
-// Return the length of the segment
 size_t tr_length(struct track* seg) {
     return seg->sample_n;
 }
 
-// Read len elements from position pos into dest
 void tr_read(struct track* t, int16_t* dest, size_t pos, size_t len) {
     if ((pos >= t->sample_n) || (len > (t->sample_n - pos))) {
 	    fprintf(stderr, "read failed: reading greater than specified position.");
@@ -59,7 +55,6 @@ void tr_read(struct track* t, int16_t* dest, size_t pos, size_t len) {
     return;
 }
 
-// Write len elements from src into position pos
 void tr_write(struct track* t, int16_t* src, size_t pos, size_t len) {
     // dynamic resize if required: expands by factor of 2 until > pos+len.
     if (pos >= t->allocation_s || (t->allocation_s - pos) < len) {	
@@ -92,7 +87,6 @@ void tr_write(struct track* t, int16_t* src, size_t pos, size_t len) {
     return;
 }
 
-// Delete a range of elements from the track
 bool tr_delete_range(struct track* t, size_t pos, size_t len) {
     if ((pos > t->sample_n) || ((pos + len) > t->sample_n)) {
 	    return false;
@@ -115,7 +109,6 @@ bool tr_delete_range(struct track* t, size_t pos, size_t len) {
     return true;
 }
 
-// Insert a portion of src_track into dest_track at position destpos
 void tr_insert(struct track* src_track,
             struct track* dest_track,
             size_t destpos, size_t srcpos, size_t len) {
