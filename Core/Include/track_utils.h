@@ -41,4 +41,11 @@ void tr_write(struct track* t, int16_t* src, size_t pos, size_t len);
 // Delete a range of elements from the track
 bool tr_delete_range(struct track* t, size_t pos, size_t len);
 
+// Insert a portion of src_track into dest_track at position destpos
+void tr_insert(
+    struct track* src_track,
+    struct track* dest_track,
+    size_t destpos, size_t srcpos, size_t len
+);
+
 #endif
