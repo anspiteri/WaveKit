@@ -44,7 +44,7 @@ Makefile
 
 # Directories
 .vs/
-Binaries/
 
 # Exclude
 !Vendor/Binaries
+!premake5.exe
