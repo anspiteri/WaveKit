@@ -44,6 +44,7 @@ Makefile
 
 # Directories
 .vs/
+Binaries/
 
 # Exclude
 !Vendor/Binaries
