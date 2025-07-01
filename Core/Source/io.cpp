@@ -29,7 +29,7 @@ void w_load(const char* fname, int16_t* dest) {
     if (fseek(fp, DATA_OFFSET, SEEK_SET) != 0) {
 	    fprintf(stderr, "Error traversing file: %s\n", strerror(errno));
 	    fclose(fp);
-	return; 
+	    return; 
     }
     
     errno = 0;
