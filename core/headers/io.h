@@ -22,7 +22,7 @@ struct wav_header {
 
 /**
  * Loads a WAV file into a buffer.
- * 
+ *
  * @param fname Path of .wav file to load
  * @param dest buffer to load file contents to
  */
@@ -30,7 +30,7 @@ void w_load(const char* fname, int16_t* dest);
 
 /**
  * Creates a WAV file from buffer
- * 
+ *
  * @param fname Path of .wav file to write to
  * @param src Buffer to copy file contents from
  * @param len Number of samples to copy from buffer

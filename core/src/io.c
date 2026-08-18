@@ -16,7 +16,7 @@
 
 void w_load(const char* fname, int16_t* dest) {
     int32_t data_s = -1;
-    
+
     errno = 0;
     FILE* fp = fopen(fname, "r");
 
@@ -29,23 +29,23 @@ void w_load(const char* fname, int16_t* dest) {
     if (fseek(fp, DATA_OFFSET, SEEK_SET) != 0) {
 	    fprintf(stderr, "Error traversing file: %s\n", strerror(errno));
 	    fclose(fp);
-	    return; 
+	    return;
     }
-    
+
     errno = 0;
     if (fread(&data_s, sizeof(int32_t), 1, fp) != 1) {	
-	    fprintf(stderr, "Error reading file: error or EOF.\n"); 
+	    fprintf(stderr, "Error reading file: error or EOF.\n");
 	    fclose(fp);
-	    return;	
+	    return;
     }
-    
+
     if (data_s == -1) {
 	    fprintf(stderr, "Error, data_s never initialised.\n");
 	    return;
     }
-    
+
     fread(dest, sizeof(int16_t), data_s, fp);
-    
+
     fclose(fp);
     return;
 }
@@ -69,7 +69,7 @@ void w_save(const char* fname, int16_t* src, size_t len) {
     const uint16_t block_align = NUM_CHANNELS * (BITS_PER_SAMPLE / 8);
     const uint16_t bits_per_sample = BITS_PER_SAMPLE;
     const char* sub_chunk_2_id = "data";
-    const uint32_t sub_chunk_2_s = SUB_CHUNK_2_SIZE(len); 
+    const uint32_t sub_chunk_2_s = SUB_CHUNK_2_SIZE(len);
 
     FILE* fp = fopen(fname, "w");
     if (fp == NULL) {
@@ -77,7 +77,7 @@ void w_save(const char* fname, int16_t* src, size_t len) {
 	    print_write_error();
 	    return;
     }
-    
+
     // CHUNK ID
     if (fwrite(chunk_id, sizeof(char), 4, fp) != 4) {
 	    print_write_error();
@@ -151,7 +151,7 @@ void w_save(const char* fname, int16_t* src, size_t len) {
 
     if (fclose(fp) != 0) {
 	    fprintf(
-            stderr, "Write error: %s, may not have saved properly.\n", 
+            stderr, "Write error: %s, may not have saved properly.\n",
             strerror(errno)
         );
     }

@@ -10,7 +10,7 @@ char* tool_identify(struct track* target, struct track* ad) {
     char* result = (char*)malloc(STARTING_RESULT_S );
     size_t buffer_s = STARTING_RESULT_S;
     size_t result_len = 0;
-    
+
     if (result == NULL) {
 	    return NULL;
     } else {
@@ -22,7 +22,7 @@ char* tool_identify(struct track* target, struct track* ad) {
     for (int i = 0; i < ad->sample_n; i++) {
 	    auto_corr += ad->data[i] * ad->data[i];
     }
-    
+
     if (auto_corr == 0) {
 	    free((void*)result);
 	    return NULL;
@@ -31,7 +31,7 @@ char* tool_identify(struct track* target, struct track* ad) {
     // compute cross-correlation
     for (int i = 0; i <= (target->sample_n - ad->sample_n); ) {
 	    double cross_corr = 0;
-	    
+	
         for (int j = 0; j < ad->sample_n; j++) {
 	        cross_corr += target->data[i+j] * ad->data[j];
 	    }
@@ -42,16 +42,16 @@ char* tool_identify(struct track* target, struct track* ad) {
 	        int stamps_len;
 
 	        if (result_len == 0) {
-		        stamps_len = snprintf(ad_stamps, sizeof(ad_stamps), 
+		        stamps_len = snprintf(ad_stamps, sizeof(ad_stamps),
                         "%d,%d", i, i+ad->sample_n-1);
 	        } else {
-		        stamps_len = snprintf(ad_stamps, sizeof(ad_stamps), 
+		        stamps_len = snprintf(ad_stamps, sizeof(ad_stamps),
                         "\n%d,%d", i, i+ad->sample_n-1);
 	        }
-	    
+	
 	        if (result_len + stamps_len + 1 > buffer_s) {
 		        buffer_s = (result_len + stamps_len + 1) * 2;
-		        
+		
                 if (buffer_s > SIZE_MAX / 2) {
 		            free((void*)result);
 		            return NULL;
@@ -63,7 +63,7 @@ char* tool_identify(struct track* target, struct track* ad) {
 		            free((void*)result);
 		            return NULL;
                 }
-                
+
                 result = r_ptr;
             }
 
@@ -75,6 +75,6 @@ char* tool_identify(struct track* target, struct track* ad) {
         } else {
             i++;
         }
-    } 
+    }
     return result;
 }
