@@ -19,7 +19,7 @@ char* tool_identify(struct track* target, struct track* ad) {
 
     // compute auto-correlation of ad at 0.
     double auto_corr = 0;
-    for (int i = 0; i < ad->sample_n; i++) {
+    for (uint i = 0; i < ad->sample_n; i++) {
 	    auto_corr += ad->data[i] * ad->data[i];
     }
 
@@ -29,10 +29,10 @@ char* tool_identify(struct track* target, struct track* ad) {
     }
 
     // compute cross-correlation
-    for (int i = 0; i <= (target->sample_n - ad->sample_n); ) {
+    for (uint i = 0; i <= (target->sample_n - ad->sample_n); ) {
 	    double cross_corr = 0;
 	
-        for (int j = 0; j < ad->sample_n; j++) {
+        for (uint j = 0; j < ad->sample_n; j++) {
 	        cross_corr += target->data[i+j] * ad->data[j];
 	    }
 	
@@ -43,10 +43,10 @@ char* tool_identify(struct track* target, struct track* ad) {
 
 	        if (result_len == 0) {
 		        stamps_len = snprintf(ad_stamps, sizeof(ad_stamps),
-                        "%d,%d", i, i+ad->sample_n-1);
+                        "%d,%ld", i, i+ad->sample_n-1);
 	        } else {
 		        stamps_len = snprintf(ad_stamps, sizeof(ad_stamps),
-                        "\n%d,%d", i, i+ad->sample_n-1);
+                        "\n%d,%ld", i, i+ad->sample_n-1);
 	        }
 	
 	        if (result_len + stamps_len + 1 > buffer_s) {
