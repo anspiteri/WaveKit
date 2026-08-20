@@ -17,6 +17,6 @@
 	* Example: WAVEKIT_MAX_BUFFER
 * Custom Types: Suffix custom typedef structures or enums with _t.
 	* Example: wavekit_log_level_t
-* Pointers: Add a _p suffix to pointer variable names to clearly visually flag memory indirection.
-	* Example: wavekit_wav_t *file_p;
+* Pointers: Add a p_ prefix to pointer variable names to clearly visually flag memory indirection.
+	* Example: wavekit_wav_t *p_file;
 
