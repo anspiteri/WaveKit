@@ -27,9 +27,3 @@ void wavekit_internal_log(
 		va_end(args);
 	}
 }
-
-// Macros that are used internally
-#define WAVEKIT_LOG_DEBUG(fmt, ...) wavekit_internal_log(WAVEKIT_LOG_DEBUG, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
-#define WAVEKIT_LOG_INFO(fmt, ...) wavekit_internal_log(WAVEKIT_LOG_INFO, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
-#define WAVEKIT_LOG_WARN(fmt, ...) wavekit_internal_log(WAVEKIT_LOG_WARN, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
-#define WAVEKIT_LOG_ERROR(fmt, ...) wavekit_internal_log(WAVEKIT_LOG_ERROR, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
