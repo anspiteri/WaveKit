@@ -25,8 +25,10 @@ struct wav_header {
  *
  * @param fname Path of .wav file to load
  * @param dest buffer to load file contents to
+ *
+ * @return 0 on success or -1 on failure
  */
-void w_load(const char* fname, int16_t* dest);
+int wavekit_wav_load(const char* fname, int16_t* dest);
 
 /**
  * Creates a WAV file from buffer
@@ -34,7 +36,9 @@ void w_load(const char* fname, int16_t* dest);
  * @param fname Path of .wav file to write to
  * @param src Buffer to copy file contents from
  * @param len Number of samples to copy from buffer
+ *
+ * @return 0 on success or -1 on failure
  */
-void w_save(const char* fname, int16_t* src, size_t len);
+int wavekit_wav_save(const char* fname, int16_t* src, size_t len);
 
 #endif
